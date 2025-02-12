@@ -1,207 +1,219 @@
+/* General body styling for layout and appearance */
 body {
     margin: 0;
     padding: 20px;
     display: flex;
     justify-content: center;
-    background-color: #1a1a1a;
+    background-color: #1a1a1a; /* Dark background */
     color: white;
     font-family: Arial, sans-serif;
 }
 
-/* Layout Components */
+/* Container for the game area */
 .game-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    max-width: 500px;
-    padding: 10px;
-    box-sizing: border-box;
+    max-width: 100%;
 }
 
-.canvas-container {
-    position: relative;
-    width: 100%;
-    max-width: 300px;
-    aspect-ratio: 1/2;
-}
-
-.game-header {
-    width: 100%;
-    max-width: 300px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-/* Canvas Styles */
+/* Styling for the Tetris game canvas */
 #tetrisCanvas {
-    border: 2px solid #333;
-    background: #000;
+    border: 2px solid #333; /* Dark border around the canvas */
+    background: #000; /* Black background for the canvas */
     margin: 20px 0;
 }
 
-/* Button Styles */
+/* Wrapper for the canvas to position elements relative to it */
+.canvas-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Styling for the start overlay button */
 .start-overlay-btn {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
+    transform: translate(-50%, -50%); /* Center the button */
+    z-index: 10; /* Ensure it appears above other elements */
     padding: 15px 30px;
     font-size: 20px;
-    background-color: rgba(0, 255, 0, 0.7);
+    background-color: rgba(0, 255, 0, 0.7); /* Transparent green background */
     color: white;
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
 }
 
+/* Hover effect for the start overlay button */
 .start-overlay-btn:hover {
-    background-color: rgba(0, 255, 0, 0.9);
+    background-color: rgba(0, 255, 0, 0.9); /* Darker green on hover */
 }
 
-.header-button {
-    padding: 8px 15px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: all 0.3s ease;
-}
-
-.header-button:hover {
-    background-color: #45a049;
-    transform: scale(1.05);
-}
-
-/* Score Display */
+/* Styling for the score display */
 #score {
     font-size: 24px;
     text-align: center;
     margin: 10px 0;
 }
 
-/* Modal Styles */
+/* Modal styling */
 .modal {
-    display: none;
+    display: none; /* Hidden by default */
     position: fixed;
-    z-index: 1000;
+    z-index: 1000; /* Ensure it's above all elements */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
-    background-color: rgba(0,0,0,0.9);
-    -webkit-overflow-scrolling: touch;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
 }
 
+/* Content inside the modal */
 .modal-content {
-    background-color: #1a1a1a;
-    margin: 0;
-    padding: 20px;
-    border: none;
-    border-radius: 20px 20px 0 0;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    max-height: 80vh;
-    overflow-y: auto;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
-    animation: slideUp 0.3s ease-out;
+    background-color: #1a1a1a; /* Same as background for consistency */
+    margin: 10% auto; /* Centered vertically and horizontally */
+    padding: 25px;
+    border: 1px solid #888; /* Light gray border */
+    border-radius: 10px; /* Rounded corners */
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
 }
 
-/* High Scores Section */
-.high-scores-section {
-    margin: 20px 0;
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 5px;
-}
-
-.high-scores-section h3 {
+/* Heading styling in modal */
+.modal-content h2 {
     margin-top: 0;
-    color: #4CAF50;
+    color: #4CAF50; /* Green for emphasis */
 }
 
-#highScoresList, #mainHighScoresList {
-    list-style-position: inside;
-    padding: 0;
-    margin: 10px 0;
-    width: 100%;
-    box-sizing: border-box;
-    max-height: 50vh;
-    overflow-y: auto;
+/* Styling for the final score inside the modal */
+#finalScore {
+    font-size: 1.2em;
+    margin: 15px 0;
+    color: #ffd700; /* Gold color for the score */
 }
 
-/* Score Input Section */
+/* Section for submitting the score */
 .submit-score-section {
     margin: 20px 0;
     padding: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle background */
     border-radius: 5px;
 }
 
+/* Input field for player initials */
 #playerInitials {
     margin: 10px 0;
     padding: 10px;
     width: 100px;
     text-align: center;
     font-size: 1.2em;
-    text-transform: uppercase;
-    background-color: #333;
-    border: 1px solid #666;
+    text-transform: uppercase; /* Capital letters only */
+    background-color: #333; /* Dark background */
+    border: 1px solid #666; /* Light border */
     color: white;
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Section for the high scores list */
+.high-scores-section {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.05); /* Subtle background */
     border-radius: 5px;
-    min-height: 44px;
 }
 
-/* Animations */
-@keyframes slideUp {
-    from { transform: translateY(100%); }
-    to { transform: translateY(0); }
+/* Heading for the high scores section */
+.high-scores-section h3 {
+    margin-top: 0;
+    color: #4CAF50; /* Green for emphasis */
 }
 
-/* Mobile Optimizations */
+/* List styling for high scores */
+#highScoresList {
+    list-style-position: inside;
+    padding: 0;
+    margin: 10px 0;
+    text-align: left;
+}
+
+/* Individual list item styling */
+#highScoresList li {
+    padding: 5px;
+    margin: 5px 0;
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle background */
+    border-radius: 3px; /* Rounded corners */
+}
+
+/* General button styling inside the modal */
+.modal-content button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+    font-size: 1em;
+}
+
+/* Submit button styling */
+#submitScoreBtn {
+    background-color: #ffd700; /* Gold color */
+    color: #000; /* Black text */
+}
+
+/* Close button styling */
+#closeModalBtn {
+    background-color: #666; /* Gray color */
+}
+
+/* Hover effect for all modal buttons */
+.modal-content button:hover {
+    opacity: 0.9;
+    transform: scale(1.05); /* Slightly scale the button */
+}
+
+/* Header button styling */
+.header-button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+    font-size: 1em;
+}
+
+/* Hover effect for header buttons */
+.header-button:hover {
+    opacity: 0.9;
+    transform: scale(1.05); /* Slightly scale the button */
+}
+
+/* Responsive styling for small screens */
 @media (max-width: 600px) {
-    .modal-content {
-        padding: 15px;
-    }
-
-    .game-header {
-        padding: 0 10px;
-    }
-
-    #score {
-        font-size: 18px;
-    }
-
-    .header-button {
-        padding: 6px 12px;
-        font-size: 14px;
-    }
-
-    #highScoresList li,
-    #mainHighScoresList li {
-        font-size: 1rem;
+    .game-container {
+        width: 100%; /* Full width on small screens */
         padding: 10px;
     }
-}
 
-/* Accessibility */
-button {
-    min-height: 44px;
-    min-width: 44px;
-}
+    #tetrisCanvas {
+        max-width: 100%; /* Ensure canvas fits the screen */
+        height: auto;
+    }
 
-/* Modal State */
-body.modal-open {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
+    .modal-content {
+        margin: 5% auto; /* Adjust positioning for small screens */
+        width: 95%; /* Full width modal */
+        padding: 15px;
+    }
 }

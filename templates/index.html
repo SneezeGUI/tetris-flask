@@ -1,61 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
     <meta charset="UTF-8">
     <title>Tetris Game</title>
+    <!-- Link to CSS file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='tetris.css') }}">
+    <!-- Make the page responsive on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 
 <body>
-    <div class="game-container">
-        <div class="game-header">
-            <div id="score">Score: 0</div>
-                <button id="highScoresButton" class="header-button">
-                    High Scores
-                </button>
-        </div>
+<div class="game-container">
+    <!-- Game header section -->
+    <div class="game-header">
+        <!-- Display player's current score -->
+        <div id="score">Score: 0</div>
+        <!-- Button to open high scores modal -->
+        <button id="highScoresButton" class="header-button">
+            High Scores
+        </button>
+    </div>
 
-        <div class="canvas-container">
-            <canvas id="tetrisCanvas" width="300" height="600"></canvas>
-                <button id="startButton" class="start-overlay-btn">
-                    Start Game
-                </button>
-        </div>
+    <!-- Canvas and game start button -->
+    <div class="canvas-container">
+        <!-- Game canvas where Tetris is rendered -->
+        <canvas id="tetrisCanvas" width="300" height="600"></canvas>
+        <!-- Button to start the game -->
+        <button id="startButton" class="start-overlay-btn">
+            Start Game
+        </button>
+    </div>
 
-        <div id="gameOverModal" class="modal">
-            <div class="modal-content">
-                <h2>Game Over</h2>
-                <p id="finalScore">Your Score: 0</p>
+    <!-- Game Over Modal -->
+    <div id="gameOverModal" class="modal">
+        <div class="modal-content">
+            <h2>Game Over</h2>
+            <!-- Display final score -->
+            <p id="finalScore">Your Score: 0</p>
 
-                <div class="submit-score-section">
-                        <input type="text"
-                               id="playerInitials"
-                               maxlength="3"
-                               placeholder="Enter 3 Initials">
-                    <button id="submitScoreBtn">Submit Score</button>
-                </div>
-
-                <div class="high-scores-section">
-                    <h3>High Scores</h3>
-                    <ol id="highScoresList"></ol>
-                </div>
-
-                <button id="closeModalBtn">Close</button>
+            <!-- Section to submit player's score -->
+            <div class="submit-score-section">
+                <!-- Input for player initials -->
+                <input type="text"
+                       id="playerInitials"
+                       maxlength="3"
+                       placeholder="Enter 3 Initials">
+                <!-- Button to submit the score -->
+                <button id="submitScoreBtn">Submit Score</button>
             </div>
-        </div>
 
-        <div id="highScoresModal" class="modal">
-            <div class="modal-content">
-                <h2>High Scores</h2>
-                <div class="high-scores-section">
-                    <ol id="mainHighScoresList"></ol>
-                </div>
-                <button id="closeHighScoresBtn">Close</button>
+            <!-- High scores list within the Game Over modal -->
+            <div class="high-scores-section">
+                <h3>High Scores</h3>
+                <ol id="highScoresList"></ol>
             </div>
+
+            <!-- Close button for Game Over modal -->
+            <button id="closeModalBtn">Close</button>
         </div>
     </div>
 
-    <script src="{{ url_for('static', filename='tetris.js') }}"></script>
+    <!-- High Scores Modal -->
+    <div id="highScoresModal" class="modal">
+        <div class="modal-content">
+            <h2>High Scores</h2>
+            <!-- Main high scores section -->
+            <div class="high-scores-section">
+                <ol id="mainHighScoresList"></ol>
+            </div>
+            <!-- Close button for High Scores modal -->
+            <button id="closeHighScoresBtn">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- Link to JavaScript file for game functionality -->
+<script src="{{ url_for('static', filename='tetris.js') }}"></script>
 </body>
 </html>

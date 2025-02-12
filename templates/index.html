@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>Tetris Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='tetris.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <div id="score">Score: 0</div>
+                <button id="highScoresButton" class="header-button">
+                    High Scores
+                </button>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="tetrisCanvas" width="300" height="600"></canvas>
+                <button id="startButton" class="start-overlay-btn">
+                    Start Game
+                </button>
+        </div>
+
+        <div id="gameOverModal" class="modal">
+            <div class="modal-content">
+                <h2>Game Over</h2>
+                <p id="finalScore">Your Score: 0</p>
+
+                <div class="submit-score-section">
+                        <input type="text"
+                               id="playerInitials"
+                               maxlength="3"
+                               placeholder="Enter 3 Initials">
+                    <button id="submitScoreBtn">Submit Score</button>
+                </div>
+
+                <div class="high-scores-section">
+                    <h3>High Scores</h3>
+                    <ol id="highScoresList"></ol>
+                </div>
+
+                <button id="closeModalBtn">Close</button>
+            </div>
+        </div>
+
+        <div id="highScoresModal" class="modal">
+            <div class="modal-content">
+                <h2>High Scores</h2>
+                <div class="high-scores-section">
+                    <ol id="mainHighScoresList"></ol>
+                </div>
+                <button id="closeHighScoresBtn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='tetris.js') }}"></script>
+</body>
+</html>

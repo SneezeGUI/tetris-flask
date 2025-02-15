@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='tetris.css') }}">
     <!-- Make the page responsive on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Content Security Policy to prevent XSS attacks -->
+    <!-- Allow inline scripts and styles for simplicity, but restrict external resources to self -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' http://localhost:420">
+
 </head>
 
 <body>
@@ -44,7 +48,7 @@
                 <input type="text"
                        id="playerInitials"
                        maxlength="3"
-                       placeholder="Enter 3 Initials">
+                       placeholder="AAA">
                 <!-- Button to submit the score -->
                 <button id="submitScoreBtn">Submit Score</button>
             </div>
